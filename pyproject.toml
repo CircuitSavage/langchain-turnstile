@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-turnstile"
+version = "0.1.0"
+description = "A LangChain Tool that solves Cloudflare Turnstile via the Peak API, for agents that drive a browser and hit a challenge."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Peak" }]
+keywords = [
+    "langchain",
+    "langchain-tool",
+    "agent",
+    "llm-agent",
+    "cloudflare",
+    "turnstile",
+    "captcha",
+    "solver",
+    "web-scraping",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "langchain-core>=0.3",
+    "pydantic>=2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+Homepage = "https://peak.fo/?utm_source=github&utm_medium=readme&utm_campaign=packages&utm_content=langchain-turnstile"
+Documentation = "https://peak.fo/docs/turnstile?utm_source=github&utm_medium=readme&utm_campaign=packages&utm_content=langchain-turnstile"
+Pricing = "https://peak.fo/pricing?utm_source=github&utm_medium=readme&utm_campaign=packages&utm_content=langchain-turnstile"
+Source = "https://github.com/CircuitSavage/langchain-turnstile"
+
+[tool.hatch.build.targets.wheel]
+packages = ["langchain_turnstile"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "langchain_turnstile",
+  "examples",
+  "tests",
+  "README.md",
+  "LICENSE",
+]
