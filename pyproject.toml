@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "langchain-turnstile"
-version = "0.1.0"
+version = "0.1.1"
 description = "A LangChain Tool that solves Cloudflare Turnstile via the Peak API, for agents that drive a browser and hit a challenge."
 readme = "README.md"
 license = { text = "MIT" }
