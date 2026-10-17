@@ -22,6 +22,12 @@ TASK_TURNSTILE = "turnstiletask"
 TASK_TURNSTILE_PROXYLESS = "turnstiletaskproxyless"
 
 
+# Peak's API sits behind Cloudflare, which blocks the stdlib's default
+# "Python-urllib/x.y" User-Agent outright (error code 1010) before the
+# request reaches Peak at all. Any normal-looking UA clears it.
+USER_AGENT = "langchain-turnstile/0.1 (+https://github.com/CircuitSavage/langchain-turnstile)"
+
+
 class PeakError(RuntimeError):
     """Raised when Peak cannot solve the challenge or the call fails."""
 
@@ -80,6 +86,7 @@ class PeakClient:
             headers={
                 "Content-Type": "application/json",
                 "X-API-Key": self.api_key,
+                "User-Agent": USER_AGENT,
             },
         )
         try:
